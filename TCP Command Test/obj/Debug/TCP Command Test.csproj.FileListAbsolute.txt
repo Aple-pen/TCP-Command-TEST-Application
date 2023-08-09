@@ -1,0 +1,11 @@
+C:\Users\eunggi\Documents\Test Code\etc\TCP Command Test\TCP Command Test\bin\Debug\TCP_Command_Test.exe.config
+C:\Users\eunggi\Documents\Test Code\etc\TCP Command Test\TCP Command Test\bin\Debug\TCP_Command_Test.exe
+C:\Users\eunggi\Documents\Test Code\etc\TCP Command Test\TCP Command Test\bin\Debug\TCP_Command_Test.pdb
+C:\Users\eunggi\Documents\Test Code\etc\TCP Command Test\TCP Command Test\obj\Debug\TCP Command Test.csproj.AssemblyReference.cache
+C:\Users\eunggi\Documents\Test Code\etc\TCP Command Test\TCP Command Test\obj\Debug\TCP Command Test.csproj.SuggestedBindingRedirects.cache
+C:\Users\eunggi\Documents\Test Code\etc\TCP Command Test\TCP Command Test\obj\Debug\TCP_Command_Test.Properties.Resources.resources
+C:\Users\eunggi\Documents\Test Code\etc\TCP Command Test\TCP Command Test\obj\Debug\TCP Command Test.csproj.GenerateResource.cache
+C:\Users\eunggi\Documents\Test Code\etc\TCP Command Test\TCP Command Test\obj\Debug\TCP Command Test.csproj.CoreCompileInputs.cache
+C:\Users\eunggi\Documents\Test Code\etc\TCP Command Test\TCP Command Test\obj\Debug\TCP_Command_Test.exe
+C:\Users\eunggi\Documents\Test Code\etc\TCP Command Test\TCP Command Test\obj\Debug\TCP_Command_Test.pdb
+C:\Users\eunggi\Documents\Test Code\etc\TCP Command Test\TCP Command Test\obj\Debug\TCP_Command_Test.Form1.resources
