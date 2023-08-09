@@ -122,15 +122,6 @@ namespace TCP_Command_Test
             tcpClient = null;
             return false;
         }
-
-        // void receiveData()
-        // {
-        //     while (true)
-        //     {
-        //         client.GetStream().Read(readBuffer, 0, 1024);
-        //         Console.WriteLine(readBuffer);
-        //     }
-        // }
         
         public string SEND_COMMAND(string com)
         {
@@ -150,6 +141,7 @@ namespace TCP_Command_Test
             }
 
             textBox4.AppendText(str);
+            textBox4.AppendText("");
             
             return str;
         }
