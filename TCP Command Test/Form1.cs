@@ -66,7 +66,8 @@ namespace TCP_Command_Test
                 var r = ConnectTcp();
                 if (!r)
                 {
-                    MessageBox.Show("IP와 Port를 확인 후 다시 시도 해주세요.","연결 실패", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("IP와 Port를 확인 후 다시 시도 해주세요.", "연결 실패", MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning);
                     return;
                 }
 
@@ -118,8 +119,9 @@ namespace TCP_Command_Test
                     SEND_COMMAND("*IDN?");
                     return true;
                 }
-                catch
+                catch (Exception e)
                 {
+                    Console.WriteLine(e.Message);
                     return false;
                 }
             }
@@ -146,21 +148,36 @@ namespace TCP_Command_Test
                     if (tcpClient.Connected) // 클라이언트가 연결되어 있는 동안
                     {
                         streamWriter.WriteLine(com);
-                        while (str == null)
+                        if (com.Contains("?"))
                         {
-                            str = streamReader.ReadLine(); // 수신 데이타를 읽어서 receiveData1 변수에 저장
-                            continue;
+                            while (str == null)
+                            {
+                                str = streamReader.ReadLine(); // 수신 데이타를 읽어서 receiveData1 변수에 저장
+                                continue;
+                            }
                         }
                     }
                 }
+                if (str != null)
+                {
+                    Invoke(new MethodInvoker(() =>
+                    {
+                        textBox4.AppendText(str);
+                        textBox4.AppendText("\r\n");
+                    }));        
+                }
+                
 
-                textBox4.AppendText(str);
-                textBox4.AppendText("\r\n");
-
-                return str;
+                return str == null ? "" : str;
             }
             catch (Exception e)
             {
+                Console.WriteLine(e);
+
+                MessageBox.Show(e.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Disconnect();
+                Invoke(new MethodInvoker(() => { btn_connect.Text = "연결"; }));
+                isConnected = false;
                 return "err";
             }
         }
@@ -173,6 +190,7 @@ namespace TCP_Command_Test
             streamWriter.Dispose();
             tcpClient.Close();
             tcpClient.Dispose();
+            tcpClient = null;
         }
 
         private void btn_send_Click(object sender, EventArgs e)
@@ -211,7 +229,7 @@ namespace TCP_Command_Test
 
         private void CommandSend()
         {
-            SEND_COMMAND(textBox1.Text);
+            Task.Run(() => SEND_COMMAND(textBox1.Text));
             Command_list.Items.Add(textBox1.Text);
         }
     }
