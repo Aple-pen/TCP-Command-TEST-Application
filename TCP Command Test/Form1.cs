@@ -158,17 +158,28 @@ namespace TCP_Command_Test
                         }
                     }
                 }
+
                 if (str != null)
                 {
                     Invoke(new MethodInvoker(() =>
                     {
                         textBox4.AppendText(str);
                         textBox4.AppendText("\r\n");
-                    }));        
+                    }));
                 }
-                
+
 
                 return str == null ? "" : str;
+            }
+            catch (IOException e)
+            {
+                Console.WriteLine(e.Message);
+                Invoke(new MethodInvoker(() =>
+                {
+                    textBox4.AppendText("IO EXCEPTION");
+                    textBox4.AppendText("\r\n");
+                }));
+                return "err";
             }
             catch (Exception e)
             {
@@ -180,6 +191,7 @@ namespace TCP_Command_Test
                 isConnected = false;
                 return "err";
             }
+            
         }
 
         public void Disconnect()
